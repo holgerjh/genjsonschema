@@ -1,0 +1,2 @@
+# genjsonschema
+Simple jsonschema generator
