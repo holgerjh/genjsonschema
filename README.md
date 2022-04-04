@@ -18,17 +18,25 @@ go get github.com/holgerjh/genjsonschema
 Gnerate and print a JSON Schema from a simple JSON object:
 
 ```go
-import "github.com/holgerjh/genjsonschema"
+package main
 
-from := []byte("{'foo': 'bar'}")
-schema, err := genjsonschema.GenerateFromJSON(from, nil)
-if err != nil {
- panic(err)
+import (
+	"fmt"
+
+	"github.com/holgerjh/genjsonschema"
+)
+
+func main() {
+	from := []byte("{'foo': 'bar'}")
+	schema, err := genjsonschema.GenerateFromJSON(from, nil)
+	if err != nil {
+		panic(err)
+	}
+	fmt.Printf("%s", schema)
 }
-fmt.Println(schema)
 ```
 
-This will print the following:
+This will print the following (without whitespace):
 
 ```JSON
 {
