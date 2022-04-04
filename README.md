@@ -1,4 +1,5 @@
 # genjsonschema ![Test & Lint](https://github.com/holgerjh/genjsonschema/actions/workflows/go.yml/badge.svg)
+![Coverage](https://img.shields.io/badge/Coverage-93.5%25-brightgreen)
 
 Genjsonschema is a simple [JSON Schema generator](https://json-schema.org).
 

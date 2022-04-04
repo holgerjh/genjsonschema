@@ -17,6 +17,15 @@ jobs:
           check-latest: true
       - name: "Checkout"
         uses: actions/checkout@v3
+        with:
+          persist-credentials: false
+          fetch-depth: 0
+      - uses: actions/cache@v2
+        with:
+          path: ~/go/pkg/mod
+          key: ${{ runner.os }}-go-${{ hashFiles('**/go.sum') }}
+          restore-keys: |
+            ${{ runner.os }}-go-
       - name: "Checking go mod tidy"
         run: |
           set -e
@@ -40,3 +49,23 @@ jobs:
         with:
           version: "2022.1"
           install-go: false
+      - name: Verify Changed files
+        uses: tj-actions/verify-changed-files@v9
+        id: verify-changed-files
+        with:
+          files: README.md
+
+      - name: Commit changes
+        if: steps.verify-changed-files.outputs.files_changed == 'true'
+        run: |
+          git config --local user.email "action@github.com"
+          git config --local user.name "GitHub Action"
+          git add README.md
+          git commit -m "chore: Updated coverage badge."
+
+      - name: Push changes
+        if: steps.verify-changed-files.outputs.files_changed == 'true'
+        uses: ad-m/github-push-action@master
+        with:
+          github_token: ${{ github.token }}
+          branch: ${{ github.head_ref }}
