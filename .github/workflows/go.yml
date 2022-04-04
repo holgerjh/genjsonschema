@@ -17,6 +17,15 @@ jobs:
           check-latest: true
       - name: "Checkout"
         uses: actions/checkout@v3
+        with:
+          persist-credentials: false
+          fetch-depth: 0
+      - uses: actions/cache@v2
+        with:
+          path: ~/go/pkg/mod
+          key: ${{ runner.os }}-go-${{ hashFiles('**/go.sum') }}
+          restore-keys: |
+            ${{ runner.os }}-go-
       - name: "Checking go mod tidy"
         run: |
           set -e
