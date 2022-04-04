@@ -3,6 +3,7 @@ Package genjsonschema implements a simple JSON Schema generator.
 It generates schemas in accordance with https://json-schema.org/draft-07/schema.
 It supports json and a subset of YAML (notably, mappings may only have string keys).
 
+
 Lists will always be defined using the anyOf keyword and won't be limited on item numbers.
 A schema generated from [1, true] will thus accept a list with an undefined number of integers,
 booleans, and combinations thereof, but will reject other element types such as string.
