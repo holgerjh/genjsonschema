@@ -27,7 +27,7 @@ jobs:
           EOF
       - name: "Run tests"
         run:
-          go test -race ./... -covermode=count -coverprofile=coverage.out
+          go test -race ./... -covermode=atomic -coverprofile=coverage.out
           go tool cover -func=coverage.out -o=coverage.out
       - name: "Linting"
         run: go vet ./...
