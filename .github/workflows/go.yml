@@ -26,7 +26,9 @@ jobs:
           Please run `go mod tidy` and update your branch.
           EOF
       - name: "Run tests"
-        run: go test -race ./...
+        run:
+          go test -race ./... -covermode=count -coverprofile=coverage.out
+          go tool cover -func=coverage.out -o=coverage.out
       - name: "Linting"
         run: go vet ./...
       - name: "staticcheck"
@@ -34,3 +36,7 @@ jobs:
         with:
           version: "2022.1"
           install-go: false
+      - name: Go Coverage Badge
+        uses: tj-actions/coverage-badge-go@v1.1
+        with:
+          filename: coverage.out
