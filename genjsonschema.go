@@ -33,7 +33,7 @@ const jsonSchemaRef = "http://json-schema.org/draft-07/schema"
 type SchemaConfig struct {
 	ID                   string // $id field value of the schema, omitted if empty
 	AdditionalProperties bool   // Whether the schema allow objects to have previously unknown properties
-	RequireAllProperties bool   // Whether the schema requires taht all properties of an object are set
+	RequireAllProperties bool   // Whether the schema requires that all properties of an object are set
 }
 
 // NewSchemaConfig returns a new SchemaConfig.
@@ -143,7 +143,7 @@ type items struct {
 	AnyOf propertyList `json:"anyOf"`
 }
 
-type jsonType string // Type holds the datatypes known to jsonschema
+type jsonType string
 
 const (
 	typeObject  jsonType = "object"
@@ -179,7 +179,7 @@ func (p *property) requireExactlyAllKeysFromMap(m map[string]interface{}) {
 func newProperty(data interface{}, config *SchemaConfig) (*property, error) {
 	p := &property{}
 
-	// helper function to set pointers to primitive types
+	// helper function to create pointers to boolean
 	pbool := func(b bool) *bool { return &b }
 
 	// pre-convert keys to strings to prevent code duplication below
