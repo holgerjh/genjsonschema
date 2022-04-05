@@ -8,11 +8,14 @@ Genjsonschema is a simple [JSON Schema generator](https://json-schema.org).
 
 It generates schemas in accordance with <https://json-schema.org/draft-07/schema> from JSON and YAML (some restrictions apply, see below).
 
+See also the documentation at [pkg.go.dev](https://pkg.go.dev/github.com/holgerjh/genjsonschema).
+
 ## Install
 
 ```bash
 go get github.com/holgerjh/genjsonschema
 ```
+
 
 ## Examples
 
