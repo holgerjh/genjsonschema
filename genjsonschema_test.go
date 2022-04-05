@@ -162,7 +162,7 @@ func TestSchemaGeneration(t *testing.T) {
 			false,
 			stubSchema("", property{
 				Type:                 typeObject,
-				AdditionalProperties: pbool(false), // false must be declared explicitely by the schema
+				AdditionalProperties: pbool(false), // false must be declared explicitly by the schema
 				Properties: &properties{
 					"foo": &property{
 						Type:                 typeObject,
@@ -329,7 +329,7 @@ func TestSerialization(t *testing.T) {
 		}
 		`},
 		{
-			name: "single object, all attributes required no addtional attributes",
+			name: "single object, all attributes required no additional attributes",
 			given: stubSchema("", property{
 				Type:                 typeObject,
 				AdditionalProperties: pbool(false),

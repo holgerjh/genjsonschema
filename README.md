@@ -1,6 +1,7 @@
 # genjsonschema
 
 ![Test & Lint](https://github.com/holgerjh/genjsonschema/actions/workflows/go.yml/badge.svg)
+[![Go Report Card](https://goreportcard.com/badge/github.com/holgerjh/genjsonschema)](https://goreportcard.com/report/github.com/holgerjh/genjsonschema)
 ![Coverage](https://img.shields.io/badge/Coverage-93.5%25-brightgreen)
 
 Genjsonschema is a simple [JSON Schema generator](https://json-schema.org).
